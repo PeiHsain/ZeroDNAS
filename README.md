@@ -27,8 +27,11 @@ ZeroDNAS
 ### Train by ZeroDNAS
 python ./tools/train_zdnas.py --cfg config/search/train_zdnas.yaml --data ./config/dataset/voc_dnas.yaml --hyp ./config/training/hyp.zerocost.yaml --model config/model/Search-YOLOv4-CSP.yaml --device 6 --exp_name EXP_NAME --nas DNAS-50 --zc naswot
 
-#### Train by IZeroDNAS
+### Train by IZeroDNAS
 python ./tools/train_izdnas.py --cfg config/search/train_izdnas.yaml --data ./config/dataset/voc_dnas.yaml --hyp ./config/training/hyp.zerocost.yaml --model config/model/Search-YOLOv4-CSP.yaml --device 6 --exp_name EXP_NAME --nas DNAS-50 --zc naswot
+
+### Train by IZeroDNAS with depth loss and latency loss
+python ./tools/train_izdnas_all.py --cfg config/search/izdnasV4-P5-S42.yaml --data ./config/dataset/voc_dnas.yaml --hyp ./config/training/hyp.zerocost.yaml --model config/model/Search-YOLOv4-P5.yaml --device 6 --exp_name EXP_NAME --nas DNAS-70 --zc naswot --lookup config/lookup/p5_rb5_gpu.yaml
 
 ### Train by ZeroDNAS with the depth loss
 python tools/train_zdnas_depth.py --cfg config/search/train_zdnas_416.yaml --data ./config/dataset/voc_dnas.yaml --hyp ./config/training/hyp.scratch.yaml --model ./config/model/Search-YOLOv4-P5-exp.yaml --device 6 --exp_name p5-voc-depth-50-seed44-fixgamma-0104 --nas DNAS-50 --zc naswot
@@ -37,8 +40,6 @@ python tools/train_zdnas_depth.py --cfg config/search/train_zdnas_416.yaml --dat
 python tools/train_zdnas_table.py --cfg config/search/train_zdnas_416_coco.yaml --data ./config/dataset/coco_dnas.yaml --hyp ./config/training/hyp.scratch.yaml --model ./config/model/Search-YOLOv4-P5.yaml --device 5 --exp_name p5-coco-table-01-50-seed44-0107 --nas DNAS-50 --zc naswot --lookup config/lookup/p5_rb5_gpu.yaml
 
 python tools/train_zdnas_table.py --cfg config/search/train_zdnas_416_coco.yaml --data ./config/dataset/coco_dnas.yaml --hyp ./config/training/hyp.scratch.yaml --model ./config/model/Search-YOLOv4-P5.yaml --device 4 --exp_name p5-coco-overhead-01-40-seed44-0107 --nas DNAS-40 --zc naswot --lookup config/lookup/p5_rb5_gpu_overhead.yaml
-
-### To Be Continue ...
 
 ## 2 Train the model
 please use the code of https://github.com/B106Roger/ScaledYOLOv4-NAS.git
